@@ -105,7 +105,6 @@ main,
 }
 
 .logo {
-  font-family: var(--script);
   font-weight: 700;
   font-size: 2rem;
   line-height: 1;
@@ -149,14 +148,12 @@ main,
 }
 
 .serif-em {
-  font-family: var(--script);
   font-style: normal;
   font-weight: 700;
   color: var(--orange);
 }
 
 .intro__text p {
-  max-width: 56ch;
   color: var(--ink-soft);
   font-size: 0.98rem;
 }
