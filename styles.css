@@ -105,6 +105,7 @@ main,
 }
 
 .logo {
+  font-family: var(--script);
   font-weight: 700;
   font-size: 2rem;
   line-height: 1;
@@ -134,10 +135,14 @@ main,
    =========================================================== */
 .intro {
   display: grid;
-  grid-template-columns: 150px 1fr;
+  grid-template-columns: 1fr 150px;
   gap: 32px;
   align-items: center;
   padding-block: 56px;
+}
+
+.intro__text {
+  min-width: 0; /* lets the text column shrink/wrap instead of overflowing into the doodle */
 }
 
 .intro h1 {
@@ -148,14 +153,16 @@ main,
 }
 
 .serif-em {
+  font-family: var(--script);
   font-style: normal;
   font-weight: 700;
   color: var(--orange);
 }
 
 .intro__text p {
+  max-width: 56ch;
   color: var(--ink-soft);
-  font-size: 0.98rem;
+  font-size: 200%;
 }
 
 /* photo-frame treatment around the doodle, echoing a profile portrait */
