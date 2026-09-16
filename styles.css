@@ -27,7 +27,7 @@
   --pill: #f0ede3;
 
   --sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --script: 'Caveat', cursive;
+  --script: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --mono: var(--sans); /* legacy references */
 
   --maxw: 880px;
@@ -162,7 +162,6 @@ main,
 .intro__text p {
   max-width: 56ch;
   color: var(--ink-soft);
-  font-size: 200%;
 }
 
 /* photo-frame treatment around the doodle, echoing a profile portrait */
