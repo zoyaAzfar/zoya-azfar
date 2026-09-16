@@ -162,6 +162,8 @@ main,
 .intro__text p {
   max-width: 56ch;
   color: var(--ink-soft);
+     font-size: 1.1rem;
+
 }
 
 /* photo-frame treatment around the doodle, echoing a profile portrait */
