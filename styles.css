@@ -2,38 +2,47 @@
    tokens
    =========================================================== */
 :root {
-  --paper: #efede6;
-  --paper-raised: #f5f3ec;
-  --ink: #1a1a16;
-  --ink-soft: #57554b;
-  --line: #d6d2c3;
+  --paper: #fcfbf7;
+  --paper-raised: #ffffff;
+  --ink: #1c1c1a;
+  --ink-soft: #706c62;
+  --line: #ece7da;
 
-  --moss: #4f5d3a;
-  --denim: #33506b;
-  --clay: #7a4a36;
-  --mustard: #8c6b22;
-  --plum: #5a3e52;
+  /* bright card accents */
+  --blue: #90add9;
+  --blue-ink: #16273d;
 
-  --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
-  --mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, 'Courier New', monospace;
+  --mint: #bfe1d2;
+  --mint-ink: #1c3229;
+
+  --mustard: #f0c33c;
+  --mustard-ink: #3a2c07;
+
+  --orange: #e2672e;
+  --orange-ink: #fdf1e7;
+
+  --maroon: #7c2c1d;
+  --maroon-ink: #fbeee2;
+
+  --pill: #f0ede3;
+
+  --sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --script: 'Caveat', cursive;
+  --mono: var(--sans); /* legacy references */
 
   --maxw: 880px;
-  --gap: 24px;
+  --gap: 22px;
+  --radius: 18px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #17170f;
-    --paper-raised: #1d1d13;
-    --ink: #ede9dd;
-    --ink-soft: #b3ae9d;
-    --line: #3a3a2c;
-
-    --moss: #8ea16f;
-    --denim: #7fa4c4;
-    --clay: #c98866;
-    --mustard: #d3ac52;
-    --plum: #b58aa8;
+    --paper: #17160f;
+    --paper-raised: #1d1c14;
+    --ink: #f3f0e6;
+    --ink-soft: #b6b0a0;
+    --line: #34321f;
+    --pill: #26241a;
   }
 }
 
@@ -48,7 +57,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -57,8 +66,8 @@ body {
 a { color: inherit; text-decoration: none; }
 
 h1, h2, h3 {
-  font-family: var(--serif);
-  font-weight: 500;
+  font-family: var(--sans);
+  font-weight: 600;
   margin: 0;
 }
 
@@ -89,32 +98,36 @@ main,
    =========================================================== */
 .site-header {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   padding-top: 28px;
   padding-bottom: 20px;
-  border-bottom: 1px solid var(--line);
 }
 
 .logo {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 1.15rem;
+  font-family: var(--script);
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1;
 }
 
 .nav {
   display: flex;
-  gap: 22px;
+  gap: 8px;
 }
 
 .nav a {
-  border-bottom: 1px solid transparent;
-  padding-bottom: 2px;
-  transition: border-color 0.15s ease;
+  background: var(--pill);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.15s ease;
 }
 
 .nav a:hover {
-  border-color: var(--ink);
+  background: var(--mustard);
+  color: var(--mustard-ink);
 }
 
 /* ===========================================================
@@ -122,19 +135,25 @@ main,
    =========================================================== */
 .intro {
   display: grid;
-  grid-template-columns: 1fr 180px;
-  gap: 40px;
+  grid-template-columns: 150px 1fr;
+  gap: 32px;
   align-items: center;
-  padding-block: 64px;
+  padding-block: 56px;
 }
 
 .intro h1 {
-  font-size: 2.1rem;
+  font-size: 2rem;
   line-height: 1.25;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
+  font-weight: 700;
 }
 
-.serif-em { font-style: italic; }
+.serif-em {
+  font-family: var(--script);
+  font-style: normal;
+  font-weight: 700;
+  color: var(--orange);
+}
 
 .intro__text p {
   max-width: 56ch;
@@ -142,18 +161,40 @@ main,
   font-size: 0.98rem;
 }
 
+/* photo-frame treatment around the doodle, echoing a profile portrait */
+.intro__doodle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: var(--mint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
 .intro__doodle svg {
-  width: 100%;
+  width: 68%;
   height: auto;
+}
+
+.intro__doodle svg path,
+.intro__doodle svg circle {
+  stroke: var(--mint-ink);
+}
+.intro__doodle svg circle[fill] {
+  fill: var(--mint-ink);
 }
 
 @media (max-width: 640px) {
   .intro {
     grid-template-columns: 1fr;
     padding-block: 40px;
-    gap: 24px;
+    gap: 20px;
+    text-align: left;
   }
-  .intro__doodle { width: 120px; }
+  .intro__doodle { width: 110px; height: 110px; }
 }
 
 /* ===========================================================
@@ -161,16 +202,14 @@ main,
    =========================================================== */
 section.work,
 section.about {
-  padding-block: 40px;
-  border-top: 1px solid var(--line);
+  padding-block: 36px;
 }
 
 section.work h2,
 section.about h2 {
-  font-size: 1rem;
-  font-family: var(--mono);
-  font-weight: 500;
-  margin-bottom: 28px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 24px;
 }
 
 /* ===========================================================
@@ -185,31 +224,37 @@ section.about h2 {
 .card {
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--line);
-  background: var(--paper-raised);
-  transition: border-color 0.15s ease, transform 0.15s ease;
+  border-radius: var(--radius);
+  background: var(--pill);
+  color: var(--ink);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  --chip-bg: rgba(0, 0, 0, 0.08);
+  --chip-border: rgba(0, 0, 0, 0.12);
 }
 
 .card:hover {
-  border-color: var(--ink);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.35);
 }
+
+/* light accents → dark text */
+.accent-moss    { background: var(--mint);    color: var(--mint-ink); }
+.accent-mustard { background: var(--mustard); color: var(--mustard-ink); }
+.accent-denim   { background: var(--blue);    color: var(--blue-ink); }
+
+/* dark accents → light text */
+.accent-clay { background: var(--orange); color: var(--orange-ink); --chip-bg: rgba(255,255,255,0.16); --chip-border: rgba(255,255,255,0.3); }
+.accent-plum { background: var(--maroon); color: var(--maroon-ink); --chip-bg: rgba(255,255,255,0.14); --chip-border: rgba(255,255,255,0.28); }
 
 .card__top {
-  padding: 10px 14px;
-  color: #f2efe4;
+  padding: 16px 16px 0;
   font-size: 0.78rem;
+  opacity: 0.75;
+  font-weight: 500;
 }
 
-.accent-moss   .card__top,
-.card__top.accent-moss   { background: var(--moss); }
-.accent-denim  .card__top { background: var(--denim); }
-.accent-clay   .card__top { background: var(--clay); }
-.accent-mustard .card__top { background: var(--mustard); }
-.accent-plum   .card__top { background: var(--plum); }
-
 .card__body {
-  padding: 16px;
+  padding: 10px 16px 16px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -217,12 +262,13 @@ section.about h2 {
 }
 
 .card__body h3 {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
+  font-weight: 700;
 }
 
 .card__body p {
-  font-size: 0.88rem;
-  color: var(--ink-soft);
+  font-size: 0.9rem;
+  opacity: 0.85;
   line-height: 1.55;
 }
 
@@ -235,10 +281,11 @@ section.about h2 {
 
 .card__tags span {
   font-size: 0.72rem;
-  color: var(--ink-soft);
-  border: 1px solid var(--line);
-  padding: 2px 8px;
-  border-radius: 2px;
+  font-weight: 500;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: var(--chip-bg);
+  border: 1px solid var(--chip-border);
 }
 
 /* ===========================================================
@@ -247,34 +294,39 @@ section.about h2 {
 .about__blurb {
   max-width: 62ch;
   color: var(--ink-soft);
-  font-size: 0.95rem;
-  margin-bottom: 32px;
+  font-size: 0.98rem;
+  margin-bottom: 28px;
 }
 
 .facts {
   margin: 0;
   max-width: 620px;
+  background: var(--paper-raised);
+  border-radius: var(--radius);
+  padding: 6px 20px;
 }
 
 .facts__row {
   display: flex;
   gap: 24px;
-  padding: 10px 0;
+  padding: 12px 0;
   border-bottom: 1px solid var(--line);
 }
 
-.facts__row:first-child {
-  border-top: 1px solid var(--line);
+.facts__row:last-child {
+  border-bottom: none;
 }
 
 .facts dt {
   width: 110px;
   flex-shrink: 0;
   color: var(--ink-soft);
+  font-weight: 500;
 }
 
 .facts dd {
   margin: 0;
+  font-weight: 500;
 }
 
 @media (max-width: 480px) {
@@ -288,8 +340,7 @@ section.about h2 {
 .site-footer {
   display: flex;
   justify-content: space-between;
-  padding-block: 28px 48px;
-  border-top: 1px solid var(--line);
+  padding-block: 20px 48px;
   color: var(--ink-soft);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
 }
