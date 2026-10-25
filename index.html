@@ -8,116 +8,108 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Caveat:wght@600;700&family=Noto+Nastaliq+Urdu:wght@400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Noto+Nastaliq+Urdu:wght@400..700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- ============ NAV ============ -->
+  <!-- ============ HEADER ============ -->
   <header class="site-header">
-    <a class="logo" href="#top">Zoya Azfar</a>
-    <nav class="nav">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
+    <a class="logo" href="#top">zoya azfar</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#work">work</a>
+      <a href="#about">about</a>
+      <a href="#links">links</a>
+      <a href="#contact">contact</a>
     </nav>
   </header>
 
+  <!-- ============ TICKER ============ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <span>Hi, I'm Zoya ✺ linguistics ✺ code ✺ digital art ✺ <i class="ur">زبان</i> ✺ made in Lahore ✺ Hi, I'm Zoya ✺ linguistics ✺ code ✺ digital art ✺ <i class="ur">زبان</i> ✺ made in Lahore ✺ </span>
+      <span>Hi, I'm Zoya ✺ linguistics ✺ code ✺ digital art ✺ <i class="ur">زبان</i> ✺ made in Lahore ✺ Hi, I'm Zoya ✺ linguistics ✺ code ✺ digital art ✺ <i class="ur">زبان</i> ✺ made in Lahore ✺ </span>
+    </div>
+  </div>
+
   <main id="top">
 
-    <!-- ============ INTRO ============ -->
+    <!-- ============ INTRO (3-column editorial grid) ============ -->
     <section class="intro">
-      <div class="intro__text">
-        <p class="eyebrow">خوش آمدید · welcome</p>
-        <h1>
-          <span class="hi">Hi, I'm</span>
-          <span class="name">Zoya<br>Azfar.</span>
-        </h1>
-        <p class="intro__blurb">
-          I'm a DPII student studying at Learning Alliance International. I'm interested in Linguistics and
-          Computer Science, particularly for applications in South Asia In my spare time, I enjoy digital art.
-        </p>
-        <a class="textlink" href="#work">See what I've made ↓</a>
+
+      <div class="col col--index">
+        <p class="clock"><span>LAHORE</span><span id="clock-date"></span><span id="clock-time"></span></p>
+        <ul class="index" id="index"></ul>
+        <a class="biglink" href="#work">all work ↓</a>
       </div>
 
-      <!-- sticker badge: rotating text around a blob + floating stickers -->
-      <div class="intro__badge" aria-hidden="true">
-        <svg class="badge__ring" viewBox="0 0 400 400">
-          <defs><path id="ring" d="M200,200 m-165,0 a165,165 0 1,1 330,0 a165,165 0 1,1 -330,0"/></defs>
-          <text><textPath href="#ring" startOffset="0">languages ✺ code ✺ colour ✺ south asia ✺ languages ✺ code ✺ colour ✺ south asia ✺</textPath></text>
-        </svg>
-        <div class="badge__core">
-          <svg viewBox="0 0 200 200">
-            <rect x="8" y="8" width="184" height="184" rx="70" fill="#2B3FA8"/>
-            <path d="M104 14c34-6 62 10 82 28v50c-26 6-52-6-58-30-4-20-14-34-24-48z" fill="#7A8A22"/>
-            <g fill="#4f7a3a"><circle cx="70" cy="160" r="26"/><circle cx="104" cy="152" r="28"/><circle cx="138" cy="160" r="26"/></g>
-            <g fill="#4f7a3a" transform="translate(52 62)"><circle cx="0" cy="-14" r="7"/><circle cx="10" cy="-10" r="7"/><circle cx="14" cy="0" r="7"/><circle cx="10" cy="10" r="7"/><circle cx="0" cy="14" r="7"/><circle cx="-10" cy="10" r="7"/><circle cx="-14" cy="0" r="7"/><circle cx="-10" cy="-10" r="7"/></g>
+      <div class="col col--text">
+        <h1 class="display">Zoya<br>Azfar.</h1>
+        <p class="mono letter">
+          <span class="ur">خوش آمدید</span> — welcome!<br><br>
+          I'm a DPII student studying at Learning Alliance International. I'm interested in Linguistics and
+          Computer Science, particularly for applications in Pakistan. In my spare time, I enjoy digital art.
+        </p>
+      </div>
+
+      <div class="col col--badge">
+        <div class="badge" aria-hidden="true">
+          <svg class="badge__ring" viewBox="0 0 400 400">
+            <defs><path id="ring" d="M200,200 m-165,0 a165,165 0 1,1 330,0 a165,165 0 1,1 -330,0"/></defs>
+            <text><textPath href="#ring" startOffset="0">languages ✺ code ✺ colour ✺ made for Pakistan ✺ languages ✺ code ✺ colour ✺ made for Pakistan ✺</textPath></text>
           </svg>
-          <span class="badge__word ur">زویا</span>
+          <div class="badge__core">
+            <svg viewBox="0 0 200 200">
+              <rect x="8" y="8" width="184" height="184" rx="70" fill="#2B3FA8"/>
+              <path d="M104 14c34-6 62 10 82 28v50c-26 6-52-6-58-30-4-20-14-34-24-48z" fill="#7A8A22"/>
+              <g fill="#4f7a3a"><circle cx="70" cy="160" r="26"/><circle cx="104" cy="152" r="28"/><circle cx="138" cy="160" r="26"/></g>
+              <g fill="#4f7a3a" transform="translate(52 62)"><circle cx="0" cy="-14" r="7"/><circle cx="10" cy="-10" r="7"/><circle cx="14" cy="0" r="7"/><circle cx="10" cy="10" r="7"/><circle cx="0" cy="14" r="7"/><circle cx="-10" cy="10" r="7"/><circle cx="-14" cy="0" r="7"/><circle cx="-10" cy="-10" r="7"/></g>
+            </svg>
+            <span class="badge__word ur">زویا</span>
+          </div>
+          <svg class="sticker s1" viewBox="0 0 100 100"><path class="spark"/></svg>
+          <svg class="sticker s2" viewBox="0 0 100 100"><path class="spark"/></svg>
+          <svg class="sticker s3" viewBox="0 0 100 100"><path class="spark"/></svg>
         </div>
-        <svg class="sticker s1" viewBox="0 0 100 100"><path id="sp1" class="spark"/></svg>
-        <svg class="sticker s2" viewBox="0 0 100 100"><path id="sp2" class="spark"/></svg>
-        <svg class="sticker s3" viewBox="0 0 100 100"><path id="sp3" class="spark"/></svg>
       </div>
     </section>
 
-    <!-- ============ MARQUEE ============ -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee__track">
-        <span>LINGUISTICS ✺ COMPUTER SCIENCE ✺ <i class="ur">زبان</i> ✺ DIGITAL ART ✺ NLP ✺ <i class="ur">کوڈ</i> ✺ SOUTH ASIA ✺ </span>
-        <span>LINGUISTICS ✺ COMPUTER SCIENCE ✺ <i class="ur">زبان</i> ✺ DIGITAL ART ✺ NLP ✺ <i class="ur">کوڈ</i> ✺ SOUTH ASIA ✺ </span>
-      </div>
-    </div>
-
-    <!-- ============ WORK ============ -->
+    <!-- ============ WORK (the star) ============ -->
     <section class="work" id="work">
       <div class="work__head">
-        <h2>Work <span class="ur h2-ur">کام</span></h2>
+        <h2 class="display">Work <span class="ur">کام</span></h2>
         <div class="work__ctrl">
-          <span class="hint">scroll → click a card</span>
+          <span class="mono">scroll → click a card</span>
           <button class="arrow" id="prev" aria-label="Scroll projects left">←</button>
           <button class="arrow" id="next" aria-label="Scroll projects right">→</button>
         </div>
       </div>
-
       <div class="track" id="track" tabindex="0" aria-label="Projects"></div>
     </section>
 
     <!-- ============ ABOUT ============ -->
     <section class="about" id="about">
       <div class="about__hero">
-        <h2>About</h2>
-        <span class="ur about__ur">تعارف</span>
-        <svg class="sticker a1" viewBox="0 0 100 100"><path id="sp4" class="spark"/></svg>
-        <svg class="sticker a2" viewBox="0 0 100 100"><path id="sp5" class="spark"/></svg>
+        <h2 class="display">About <span class="ur">تعارف</span></h2>
+        <svg class="sticker a1" viewBox="0 0 100 100"><path class="spark"/></svg>
+        <svg class="sticker a2" viewBox="0 0 100 100"><path class="spark"/></svg>
       </div>
 
       <div class="about__body">
         <dl class="facts">
-          <div class="facts__row">
-            <dt>School</dt>
-            <dd>Learning Alliance International</dd>
-          </div>
-          <div class="facts__row">
-            <dt>MYP Score</dt>
-            <dd>54/56</dd>
-          </div>
-          <div class="facts__row">
-            <dt>DP Score</dt>
-            <dd>45/45 <small>(Predicted)</small></dd>
-          </div>
-          <div class="facts__row">
-            <dt>SAT Score</dt>
-            <dd>1550 <small>(780M : 770RW)</small></dd>
-          </div>
+          <div class="facts__row"><dt>School</dt><dd>Learning Alliance International</dd></div>
+          <div class="facts__row"><dt>MYP Score</dt><dd>54/56</dd></div>
+          <div class="facts__row"><dt>DP Score</dt><dd>45/45 <small>(Predicted)</small></dd></div>
+          <div class="facts__row"><dt>SAT Score</dt><dd>1550 <small>(780M : 770RW)</small></dd></div>
         </dl>
 
         <div class="about__text">
-          <p class="about__blurb">
+          <p class="mono">
             I've won multiple honors &amp; awards at school for my academics, attaining a High Achiever's Merit Scholarship for MYP IV – V and the Naim Salam Mehta Scholarship for DP I – II.
             I serve as the VP of STEM Society, where we participated &amp; won multiple competitions.
           </p>
-          <p class="subjects__label">Subjects</p>
+          <p class="label">Subjects</p>
           <ul class="subjects">
             <li>English Language &amp; Literature <b>SL</b></li>
             <li>Urdu Literature <b>SL</b></li>
@@ -128,6 +120,19 @@
           </ul>
         </div>
       </div>
+    </section>
+
+    <!-- ============ LINKS ============ -->
+    <section class="links" id="links">
+      <h2 class="display">Links <span class="ur">روابط</span></h2>
+      <ul class="linklist" id="linklist"></ul>
+    </section>
+
+    <!-- ============ CONTACT (tiny) ============ -->
+    <section class="contact" id="contact">
+      <span class="label">Contact</span>
+      <a id="contact-email" href="#"></a>
+      <a id="contact-linkedin" href="#" target="_blank" rel="noopener">LinkedIn ↗</a>
     </section>
 
   </main>
