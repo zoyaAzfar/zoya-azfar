@@ -3,16 +3,20 @@
    (Placeholders below: swap in your real email, LinkedIn and links.)
    ===================================================================== */
 const CONTACT = {
-  email: 'your-email@example.com',                      // <- your email
-  linkedin: 'https://www.linkedin.com/in/your-name',    // <- your LinkedIn URL
+  email: 'zoe.azfar@gmail.com',                    
+  linkedin: 'https://www.linkedin.com/in/zoya-azfar-1a8365350/',     
 };
 
-const LINKS = [
-  { title: 'Hospital Nama', note: 'Hospital info + AI chatbot for Lahore', url: 'https://hospitalnama.pk' },
-  { title: 'Zuban Daraz', note: 'Open-source dictionary of gendered language', url: '#' },          // <- add URL
-  { title: 'Humor Translation paper', note: 'Under review at NHSJS', url: '#' },                   // <- add URL
-  { title: 'Digital art', note: 'Procreate illustrations', url: '#' },                           // <- add URL
-];
+/* Links for each work card. Add as many as you like per project.
+   Leave url as '' and it shows as a greyed-out "soon" pill until you fill it in. */
+const PROJECT_LINKS = {
+  'TPI Research Internship':          [{ label: 'Poster',          url: '' }],
+  'Humor Translation Research Paper': [{ label: 'Paper (NHSJS)',   url: '' }],
+  'Hospital Nama':                    [{ label: 'hospitalnama.pk', url: 'https://hospitalnama.pk' }],
+  'Zuban Daraz':                      [{ label: 'Dictionary',      url: 'https://zubandaraz.org' }],
+  'MILAP':                        [{ label: 'Project',         url: 'https://milap.org.pk' }],
+  'Accent=Worth?':                    [{ label: 'Project',         url: 'https://accentequalsworth.org' }],
+};
 
 /* ---------- shape helpers (all drawn in a 120x120 box) ---------- */
 const INK = '#1A1A16';
@@ -77,7 +81,7 @@ const projects = [
     details: [
       'A four-month research project under a mentor from Cornell, examining how six large language models translate humour between English and Urdu.',
       'Applied quantitative and qualitative evaluation methods, including interviews, to compare the models’ performance in translating short-form humour across languages.',
-      'Under review at NHSJS.',
+      'Revise & resubmit at NHSJS.',
       'Won the STEM CREST Gold Award.',
     ],
     tags: ['Linguistics', 'LLMs'],
@@ -92,9 +96,9 @@ const projects = [
       'Created an online platform with an integrated AI chatbot to display information about 45 hospitals in Lahore.',
       'Analyzed over 5000 reviews to create themes of complaints, and calculated city-wide averages for complaint frequency.',
       'Compiled a novel dataset on hospital characteristics in Pakistan through primary and secondary research.',
+       'Endorsed by PSIM'
     ],
     tags: ['NLP', 'Policy'],
-    link: 'https://hospitalnama.pk',
     bg: '#FF6B3D', fg: '#1A1A16', shape: 'squircle', shapeFill: '#FFFDF6',
   },
   {
@@ -106,20 +110,20 @@ const projects = [
       'Created an online, open-source dictionary and ontology to explore the phenomenology of gendered language in South Asia.',
       'Collected over 500 words and proverbs, along with accompanying stories in 10 languages.',
       'Conducted a corpus analysis of 1M newspapers to analyze for linguistic sexism.',
-      'Launched at Kitaab Ghar.',
+      'Launched at Kitaab Ghar, featured on the Daily Times.',
     ],
     tags: ['Linguistics', 'NLP'],
     bg: '#F7E01B', fg: '#1A1A16', shape: 'wavy', shapeFill: '#2B3FA8', wordColor: '#FFFDF6',
   },
   {
-    title: 'Sehat Haq',
+    title: 'MILAP',
     date: 'Summer 2024',
     word: 'صحت',
     blurb: 'Special education mapping, 1-on-1 teaching, and a Pakistan Sign Language book.',
     details: [
       'Interned at the Lahore Autism center for 2 months, teaching 20+ children 1-on-1.',
-      'Inspired by that work, mapped out all public and private special education facilities in Lahore.',
-      'Illustrating a book teaching children how to fingerspell in Pakistan Sign Language, to be launched with Alif Laila Book Bus Society.',
+      'Inspired by that work, mapped out 68 public and private special education facilities in Lahore.',
+      'Illustrating a book teaching children how to sign 12 basics words in Pakistan Sign Language, published with TWS Books.',
     ],
     tags: ['QGIS', 'Procreate'],
     bg: '#7A8A22', fg: '#FFFDF6', shape: 'sun', shapeFill: '#FF6B3D',
@@ -139,8 +143,15 @@ const projects = [
   },
 ];
 
+projects.forEach((p) => { p.links = PROJECT_LINKS[p.title] || []; });
+
 const pad = (n) => String(n + 1).padStart(2, '0');
 const el = (id) => document.getElementById(id);
+
+/* a link pill: real link if it has a url, greyed-out "soon" pill if not */
+const pill = (l) => l.url
+  ? `<a class="pill" href="${l.url}" target="_blank" rel="noopener">${l.label} ↗</a>`
+  : `<span class="pill pill--soon">${l.label} · soon</span>`;
 
 /* ---------- live Lahore clock (like the "TODAY" block) ---------- */
 function tick() {
@@ -209,8 +220,8 @@ function fillModal(i) {
   el('m-title').textContent = p.title;
   el('m-list').innerHTML = p.details.map((d) => `<li>${d}</li>`).join('');
   el('m-tags').innerHTML = p.tags.map((t) => `<span>${t}</span>`).join('');
-  const link = el('m-link');
-  if (p.link) { link.href = p.link; link.hidden = false; } else { link.hidden = true; }
+  el('m-links').innerHTML = p.links.map(pill).join('');
+  el('m-links').hidden = !p.links.length;
   el('m-count').textContent = `${i + 1} / ${projects.length}`;
 }
 
@@ -232,11 +243,19 @@ modal.addEventListener('keydown', (e) => {
 });
 
 /* ---------- links + contact ---------- */
-el('linklist').innerHTML = LINKS.map((l) => {
-  const ext = l.url.startsWith('http');
-  return `<li><a href="${l.url}"${ext ? ' target="_blank" rel="noopener"' : ''}>
-    <span>${l.title}</span><span class="go">↗</span><span class="mono">${l.note}</span></a></li>`;
-}).join('');
+el('linklist').innerHTML = projects.map((p, i) => `
+  <li class="linkrow">
+    <span class="num">${pad(i)}</span>
+    <button type="button" class="t" data-i="${i}">
+      <span class="t__title">${p.title}</span>
+      <span class="mono">${p.blurb}</span>
+    </button>
+    <span class="pills">${p.links.map(pill).join('')}</span>
+  </li>`).join('');
+el('linklist').addEventListener('click', (e) => {
+  const b = e.target.closest('button[data-i]');
+  if (b) openModal(+b.dataset.i);
+});
 
 const mail = el('contact-email');
 mail.href = `mailto:${CONTACT.email}`;
