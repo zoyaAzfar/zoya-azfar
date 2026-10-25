@@ -1,3 +1,20 @@
+/* =====================================================================
+   EDIT ME — contact + links live here so you only change them once.
+   (Placeholders below: swap in your real email, LinkedIn and links.)
+   ===================================================================== */
+const CONTACT = {
+  email: 'your-email@example.com',                      // <- your email
+  linkedin: 'https://www.linkedin.com/in/your-name',    // <- your LinkedIn URL
+};
+
+const LINKS = [
+  { title: 'Hospital Nama', note: 'Hospital info + AI chatbot for Lahore', url: 'https://hospitalnama.pk' },
+  { title: 'Zuban Daraz', note: 'Open-source dictionary of gendered language', url: '#' },          // <- add URL
+  { title: 'Humor Translation paper', note: 'Under review at NHSJS', url: '#' },                   // <- add URL
+  { title: 'Digital art', note: 'Procreate illustrations', url: '#' },                           // <- add URL
+];
+
+/* ---------- shape helpers (all drawn in a 120x120 box) ---------- */
 const INK = '#1A1A16';
 
 function burst(n, r1, r2, cx = 60, cy = 60) {
@@ -33,8 +50,10 @@ function shapeSVG(type, fill) {
   }
 }
 
+/* sparkle stickers (pink star, red outline) */
 document.querySelectorAll('.spark').forEach((p) => p.setAttribute('d', burst(8, 46, 12, 50, 50)));
 
+/* ---------- project data ---------- */
 const projects = [
   {
     title: 'TPI Research Internship',
@@ -48,7 +67,7 @@ const projects = [
       'Presented a poster at the 3rd International SutCon Conference 2026.',
     ],
     tags: ['NLP', 'Policy'],
-    bg: '#2B3FA8', fg: '#FFFDF6', shape: 'flower', shapeFill: '#F6B3C8',
+    bg: '#2B3FA8', fg: '#FFFDF6', shape: 'flower', shapeFill: '#F6B3C8', wordColor: '#1A1A16',
   },
   {
     title: 'Humor Translation Research Paper',
@@ -120,9 +139,32 @@ const projects = [
   },
 ];
 
-const track = document.getElementById('track');
 const pad = (n) => String(n + 1).padStart(2, '0');
+const el = (id) => document.getElementById(id);
 
+/* ---------- live Lahore clock (like the "TODAY" block) ---------- */
+function tick() {
+  const now = new Date();
+  const tz = { timeZone: 'Asia/Karachi' };
+  const date = new Intl.DateTimeFormat('en-GB', { ...tz, day: '2-digit', month: 'short' }).format(now).toUpperCase();
+  const time = new Intl.DateTimeFormat('en-GB', { ...tz, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }).format(now);
+  el('clock-date').textContent = date;
+  el('clock-time').textContent = time;
+}
+tick();
+setInterval(tick, 1000);
+
+/* ---------- index list in the intro ---------- */
+el('index').innerHTML = projects
+  .map((p, i) => `<li><button type="button" data-i="${i}"><span>${p.title}</span><span>${p.date}</span></button></li>`)
+  .join('');
+el('index').addEventListener('click', (e) => {
+  const b = e.target.closest('button[data-i]');
+  if (b) openModal(+b.dataset.i);
+});
+
+/* ---------- work cards (big) ---------- */
+const track = el('track');
 projects.forEach((p, i) => {
   const card = document.createElement('button');
   card.className = 'card';
@@ -132,23 +174,28 @@ projects.forEach((p, i) => {
   card.style.setProperty('--wc', p.wordColor || '#1A1A16');
   card.setAttribute('aria-label', `${p.title} — open details`);
   card.innerHTML = `
-    <div class="card__top"><span class="pill">${p.date}</span><span class="num">${pad(i)}</span></div>
-    <div class="shape">${shapeSVG(p.shape, p.shapeFill)}<span class="shape__word ur">${p.word}</span></div>
-    <h3>${p.title}</h3>
-    <p>${p.blurb}</p>
-    <div class="card__foot">
-      <span class="tags">${p.tags.map((t) => `<span>${t}</span>`).join('')}</span>
-      <span class="more">details +</span>
+    <div class="card__art">
+      <span class="bubble bubble--date">${p.date}</span>
+      <div class="shape">${shapeSVG(p.shape, p.shapeFill)}<span class="shape__word ur">${p.word}</span></div>
+      <span class="bubble bubble--tag2">${p.tags[0]}</span>
+      <span class="bubble bubble--tag">${p.tags[1] || 'details +'}</span>
+    </div>
+    <div class="card__body">
+      <h3>${p.title}</h3>
+      <span class="card__meta">${pad(i)} — ${p.date} · details +</span>
+      <p class="card__blurb">${p.blurb}</p>
     </div>`;
   card.addEventListener('click', () => openModal(i));
   track.appendChild(card);
 });
 
-const step = () => Math.min(track.clientWidth * 0.8, 380);
-document.getElementById('prev').addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
-document.getElementById('next').addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+/* ---------- carousel arrows ---------- */
+const step = () => Math.min(track.clientWidth * 0.8, 660);
+el('prev').addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+el('next').addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
 
-const modal = document.getElementById('modal');
+/* ---------- modal ---------- */
+const modal = el('modal');
 let current = 0;
 
 function fillModal(i) {
@@ -157,15 +204,14 @@ function fillModal(i) {
   modal.style.setProperty('--bg', p.bg);
   modal.style.setProperty('--fg', p.fg);
   modal.style.setProperty('--wc', p.wordColor || '#1A1A16');
-  document.getElementById('m-art').innerHTML =
-    `<div class="shape">${shapeSVG(p.shape, p.shapeFill)}<span class="shape__word ur">${p.word}</span></div>`;
-  document.getElementById('m-date').textContent = `${pad(i)} — ${p.date}`;
-  document.getElementById('m-title').textContent = p.title;
-  document.getElementById('m-list').innerHTML = p.details.map((d) => `<li>${d}</li>`).join('');
-  document.getElementById('m-tags').innerHTML = p.tags.map((t) => `<span>${t}</span>`).join('');
-  const link = document.getElementById('m-link');
+  el('m-art').innerHTML = `<div class="shape">${shapeSVG(p.shape, p.shapeFill)}<span class="shape__word ur">${p.word}</span></div>`;
+  el('m-date').textContent = `${pad(i)} — ${p.date}`;
+  el('m-title').textContent = p.title;
+  el('m-list').innerHTML = p.details.map((d) => `<li>${d}</li>`).join('');
+  el('m-tags').innerHTML = p.tags.map((t) => `<span>${t}</span>`).join('');
+  const link = el('m-link');
   if (p.link) { link.href = p.link; link.hidden = false; } else { link.hidden = true; }
-  document.getElementById('m-count').textContent = `${i + 1} / ${projects.length}`;
+  el('m-count').textContent = `${i + 1} / ${projects.length}`;
 }
 
 function openModal(i) {
@@ -175,14 +221,26 @@ function openModal(i) {
 }
 const go = (d) => fillModal((current + d + projects.length) % projects.length);
 
-document.getElementById('m-close').addEventListener('click', () => modal.close());
-document.getElementById('m-prev').addEventListener('click', () => go(-1));
-document.getElementById('m-next').addEventListener('click', () => go(1));
-modal.addEventListener('click', (e) => { if (e.target === modal) modal.close(); }); // click backdrop
+el('m-close').addEventListener('click', () => modal.close());
+el('m-prev').addEventListener('click', () => go(-1));
+el('m-next').addEventListener('click', () => go(1));
+modal.addEventListener('click', (e) => { if (e.target === modal) modal.close(); });
 modal.addEventListener('close', () => document.body.classList.remove('no-scroll'));
 modal.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft') go(-1);
   if (e.key === 'ArrowRight') go(1);
 });
 
-document.getElementById('year').textContent = new Date().getFullYear();
+/* ---------- links + contact ---------- */
+el('linklist').innerHTML = LINKS.map((l) => {
+  const ext = l.url.startsWith('http');
+  return `<li><a href="${l.url}"${ext ? ' target="_blank" rel="noopener"' : ''}>
+    <span>${l.title}</span><span class="go">↗</span><span class="mono">${l.note}</span></a></li>`;
+}).join('');
+
+const mail = el('contact-email');
+mail.href = `mailto:${CONTACT.email}`;
+mail.textContent = CONTACT.email;
+el('contact-linkedin').href = CONTACT.linkedin;
+
+el('year').textContent = new Date().getFullYear();
