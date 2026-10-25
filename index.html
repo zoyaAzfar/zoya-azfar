@@ -20,28 +20,18 @@
     <nav class="nav" aria-label="Sections">
       <a href="#work">work</a>
       <a href="#about">about</a>
-      <a href="#links">links</a>
       <a href="#contact">contact</a>
     </nav>
   </header>
 
-  <!-- ============ TICKER ============ -->
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker__track">
-      <span>Hi, I'm Zoya ✺ linguistics ✺ code ✺ digital art ✺ <i class="ur">زبان</i> ✺ made in Lahore ✺ Hi, I'm Zoya ✺ linguistics ✺ code ✺ digital art ✺ <i class="ur">زبان</i> ✺ made in Lahore ✺ </span>
-      <span>Hi, I'm Zoya ✺ linguistics ✺ code ✺ digital art ✺ <i class="ur">زبان</i> ✺ made in Lahore ✺ Hi, I'm Zoya ✺ linguistics ✺ code ✺ digital art ✺ <i class="ur">زبان</i> ✺ made in Lahore ✺ </span>
-    </div>
-  </div>
-
   <main id="top">
 
-    <!-- ============ INTRO (3-column editorial grid) ============ -->
+    <!-- ============ INTRO ============ -->
     <section class="intro">
 
       <div class="col col--index">
         <p class="clock"><span>LAHORE</span><span id="clock-date"></span><span id="clock-time"></span></p>
         <ul class="index" id="index"></ul>
-        <a class="biglink" href="#work">all work ↓</a>
       </div>
 
       <div class="col col--text">
@@ -64,23 +54,18 @@
               <rect x="8" y="8" width="184" height="184" rx="70" fill="#2B3FA8"/>
               <path d="M104 14c34-6 62 10 82 28v50c-26 6-52-6-58-30-4-20-14-34-24-48z" fill="#7A8A22"/>
               <g fill="#4f7a3a"><circle cx="70" cy="160" r="26"/><circle cx="104" cy="152" r="28"/><circle cx="138" cy="160" r="26"/></g>
-              <g fill="#4f7a3a" transform="translate(52 62)"><circle cx="0" cy="-14" r="7"/><circle cx="10" cy="-10" r="7"/><circle cx="14" cy="0" r="7"/><circle cx="10" cy="10" r="7"/><circle cx="0" cy="14" r="7"/><circle cx="-10" cy="10" r="7"/><circle cx="-14" cy="0" r="7"/><circle cx="-10" cy="-10" r="7"/></g>
             </svg>
             <span class="badge__word ur">زویا</span>
           </div>
-          <svg class="sticker s1" viewBox="0 0 100 100"><path class="spark"/></svg>
-          <svg class="sticker s2" viewBox="0 0 100 100"><path class="spark"/></svg>
-          <svg class="sticker s3" viewBox="0 0 100 100"><path class="spark"/></svg>
         </div>
       </div>
     </section>
 
-    <!-- ============ WORK (the star) ============ -->
+    <!-- ============ WORK ============ -->
     <section class="work" id="work">
       <div class="work__head">
         <h2 class="display">Work <span class="ur">کام</span></h2>
         <div class="work__ctrl">
-          <span class="mono">scroll → click a card</span>
           <button class="arrow" id="prev" aria-label="Scroll projects left">←</button>
           <button class="arrow" id="next" aria-label="Scroll projects right">→</button>
         </div>
@@ -90,11 +75,7 @@
 
     <!-- ============ ABOUT ============ -->
     <section class="about" id="about">
-      <div class="about__hero">
-        <h2 class="display">About <span class="ur">تعارف</span></h2>
-        <svg class="sticker a1" viewBox="0 0 100 100"><path class="spark"/></svg>
-        <svg class="sticker a2" viewBox="0 0 100 100"><path class="spark"/></svg>
-      </div>
+      <h2 class="display">About <span class="ur">تعارف</span></h2>
 
       <div class="about__body">
         <dl class="facts">
@@ -122,12 +103,6 @@
       </div>
     </section>
 
-    <!-- ============ LINKS ============ -->
-    <section class="links" id="links">
-      <h2 class="display">Links <span class="ur">روابط</span></h2>
-      <ul class="linklist" id="linklist"></ul>
-    </section>
-
     <!-- ============ CONTACT (tiny) ============ -->
     <section class="contact" id="contact">
       <span class="label">Contact</span>
@@ -141,24 +116,6 @@
     <span>built with html &amp; css</span>
     <span>&copy; <span id="year"></span></span>
   </footer>
-
-  <!-- ============ PROJECT DETAIL MODAL ============ -->
-  <dialog class="modal" id="modal" aria-labelledby="m-title">
-    <button class="modal__close" id="m-close" aria-label="Close">✕</button>
-    <div class="modal__art" id="m-art"></div>
-    <div class="modal__content">
-      <p class="modal__date" id="m-date"></p>
-      <h3 id="m-title"></h3>
-      <ul class="modal__list" id="m-list"></ul>
-      <div class="tags" id="m-tags"></div>
-      <div class="pills" id="m-links"></div>
-      <div class="modal__nav">
-        <button class="arrow" id="m-prev" aria-label="Previous project">←</button>
-        <span id="m-count"></span>
-        <button class="arrow" id="m-next" aria-label="Next project">→</button>
-      </div>
-    </div>
-  </dialog>
 
   <script src="script.js"></script>
 </body>
