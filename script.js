@@ -72,7 +72,7 @@ const projects = [
   {
     title: 'Humor Translation Research Paper',
     date: 'Spring 2026',
-    word: 'مزاح',
+    word: 'مزاق',
     details: [
       'A four-month research project under a mentor from Cornell, examining how six large language models translate humour between English and Urdu.',
       'Applied quantitative and qualitative evaluation methods, including interviews, to compare the models’ performance in translating short-form humour across languages.',
@@ -111,7 +111,7 @@ const projects = [
   {
     title: 'MILAP',
     date: 'Summer 2024',
-    word: 'صحت',
+    word: 'تعلیم',
     details: [
       'Interned at the Lahore Autism center for 2 months, teaching 20+ children 1-on-1.',
       'Inspired by that work, mapped out 68 public and private special education facilities in Lahore.',
