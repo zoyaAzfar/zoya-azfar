@@ -2,8 +2,8 @@
    EDIT ME — contact + the links on each work card live here.
    ===================================================================== */
 const CONTACT = {
-  email: 'your-email@example.com',                      // <- your email
-  linkedin: 'https://www.linkedin.com/in/your-name',    // <- your LinkedIn URL
+  email: 'zoe.azfar@gmail.com',                      // <- your email
+  linkedin: 'https://www.linkedin.com/in/zoya-azfar-1a8365350/',    // <- your LinkedIn URL
 };
 
 /* Links shown on each work card. Add as many as you like per project.
@@ -12,9 +12,10 @@ const PROJECT_LINKS = {
   'TPI Research Internship':          [{ label: 'Poster',          url: '' }],
   'Humor Translation Research Paper': [{ label: 'Paper (NHSJS)',   url: '' }],
   'Hospital Nama':                    [{ label: 'hospitalnama.pk', url: 'https://hospitalnama.pk' }],
-  'Zuban Daraz':                      [{ label: 'Dictionary',      url: '' }],
-  'Sehat Haq':                        [{ label: 'Project',         url: '' }],
-  'Accent=Worth?':                    [{ label: 'Project',         url: '' }],
+  'Zuban Daraz':                      [{ label: 'Dictionary',      url: 'https://zubandaraz.org' }],
+  'MILAP':                            [{ label: 'Community Work',         url: 'https://milap.org.pk' }],
+  'Accent=Worth?':                    [{ label: 'Research',         url: 'https://accentequalsworth.org.pk' }],
+     'The Master\'s Tools':                    [{ label: 'Game',         url: 'https://zoyaazfar.itch.io/the-masters-tools' }]
 };
 
 /* ---------- shape helpers (all drawn in a 120x120 box) ---------- */
@@ -75,7 +76,7 @@ const projects = [
     details: [
       'A four-month research project under a mentor from Cornell, examining how six large language models translate humour between English and Urdu.',
       'Applied quantitative and qualitative evaluation methods, including interviews, to compare the models’ performance in translating short-form humour across languages.',
-      'Under review at NHSJS.',
+      'Revise & resubmit at NHSJS.',
       'Won the STEM CREST Gold Award.',
     ],
     tags: ['Linguistics', 'LLMs'],
@@ -89,6 +90,7 @@ const projects = [
       'Created an online platform with an integrated AI chatbot to display information about 45 hospitals in Lahore.',
       'Analyzed over 5000 reviews to create themes of complaints, and calculated city-wide averages for complaint frequency.',
       'Compiled a novel dataset on hospital characteristics in Pakistan through primary and secondary research.',
+             'Endorsed by the PSIM.'
     ],
     tags: ['NLP', 'Policy'],
     bg: '#FF6B3D', fg: '#1A1A16', shape: 'squircle', shapeFill: '#FFFDF6',
@@ -98,24 +100,24 @@ const projects = [
     date: 'Summer 2026',
     word: 'زبان دراز',
     details: [
-      'Created an online, open-source dictionary and ontology to explore the phenomenology of gendered language in South Asia.',
-      'Collected over 500 words and proverbs, along with accompanying stories in 10 languages.',
-      'Conducted a corpus analysis of 1M newspapers to analyze for linguistic sexism.',
-      'Launched at Kitaab Ghar.',
+      'Created an online, open-source dictionary to explore the phenomenology of gendered language in South Asia.',
+      'Collected over 500 words and proverbs, along with accompanying stories in 15 languages.',
+      'Conducted a corpus analysis of 100K newspapers to analyze for linguistic sexism.',
+      'Launched at Kitaab Ghar. Featured in the Daily Times',
     ],
     tags: ['Linguistics', 'NLP'],
     bg: '#F7E01B', fg: '#1A1A16', shape: 'wavy', shapeFill: '#2B3FA8', wordColor: '#FFFDF6',
   },
   {
-    title: 'Sehat Haq',
+    title: 'MILAP',
     date: 'Summer 2024',
     word: 'صحت',
     details: [
       'Interned at the Lahore Autism center for 2 months, teaching 20+ children 1-on-1.',
-      'Inspired by that work, mapped out all public and private special education facilities in Lahore.',
-      'Illustrating a book teaching children how to fingerspell in Pakistan Sign Language, to be launched with Alif Laila Book Bus Society.',
+      'Inspired by that work, mapped out 68 public and private special education facilities in Lahore.',
+      'Illustrating a book teaching children how to sign 12 basics words in Pakistan Sign Language, published with TWS Publications.',
     ],
-    tags: ['QGIS', 'Procreate'],
+    tags: ['Community', 'Procreate'],
     bg: '#7A8A22', fg: '#FFFDF6', shape: 'sun', shapeFill: '#FF6B3D',
   },
   {
@@ -129,6 +131,18 @@ const projects = [
     ],
     tags: ['Linguistics', 'NLP'],
     bg: '#D8283C', fg: '#FFFDF6', shape: 'flower', shapeFill: '#F7E01B',
+  },
+    {
+    title: 'The Master\'s Tools',
+    date: 'Summer 2023',
+    word: 'کھیل',
+    details: [
+      'Developed game on working woman in Pakistan to show systemic gender bias in workplace and at home.',
+      'Designed to be deliberately difficult to highlight the impossibility of managing every task in a day. Designed sprites, maps, wrote dialogue, wrote code, playtested and deployed myself.',
+      '200+ players in total. Adopted into Master\'s cirriculum for course MBA6060: Manging Workplace Diversity',
+    ],
+    tags: ['Linguistics', 'Community'],
+    bg: '#2B3FA8', fg: '#FFFDF6', shape: 'flower', shapeFill: '#F6B3C8', wordColor: '#1A1A16',
   },
 ];
 
