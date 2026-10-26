@@ -61,9 +61,10 @@ const projects = [
     date: 'Winter 2025',
     word: 'تحقیق',
     details: [
-      'A comparative study of public and private healthcare in Pakistan.',
-      'Built an original dataset by collecting and processing reviews of healthcare institutions.',
+      'Conducted comparative study of public and private healthcare in Pakistan.',
+      'Built an original dataset by collecting and processing 14K reviews of healthcare institutions.',
       'Used Python to compare 3 NLP models and identify complaint patterns across cities and healthcare sectors, with thorough statistical analysis of findings.',
+      'Conducted tangential analysis of frequency correlation with star ratings and 3 sentiment analysis models to verify validity of dataset.',
       'Presented a poster at the 3rd International SutCon Conference 2026.',
     ],
     tags: ['NLP', 'Policy'],
@@ -74,7 +75,7 @@ const projects = [
     date: 'Spring 2026',
     word: 'مزاق',
     details: [
-      'A four-month research project under a mentor from Cornell, examining how six large language models translate humour between English and Urdu.',
+      'A four-month research project under a PhD mentor from Cornell, examining how six large language models translate humour between English and Urdu.',
       'Applied quantitative and qualitative evaluation methods, including interviews, to compare the models’ performance in translating short-form humour across languages.',
       'Revise & resubmit at NHSJS.',
       'Won the STEM CREST Gold Award.',
@@ -87,10 +88,11 @@ const projects = [
     date: 'Spring 2026',
     word: 'ہسپتال',
     details: [
-      'Created an online platform with an integrated AI chatbot to display information about 45 hospitals in Lahore.',
+      'Created an online platform with an integrated billingual AI chatbot to display information about 45 hospitals in Lahore.',
       'Analyzed over 5000 reviews to create themes of complaints, and calculated city-wide averages for complaint frequency.',
-      'Compiled a novel dataset on hospital characteristics in Pakistan through primary and secondary research.',
-             'Endorsed by the PSIM.'
+      'Users can compare up to hospitals, get live drive times, and filter hospitals by desired requirements.',
+      'Compiled a novel dataset with 45+ datapoints on hospital characteristics in Pakistan through primary and secondary research.',
+         'Endorsed by the PSIM.'
     ],
     tags: ['NLP', 'Policy'],
     bg: '#FF6B3D', fg: '#1A1A16', shape: 'squircle', shapeFill: '#FFFDF6',
@@ -101,7 +103,7 @@ const projects = [
     word: 'زبان دراز',
     details: [
       'Created an online, open-source dictionary to explore the phenomenology of gendered language in South Asia.',
-      'Collected over 500 words and proverbs, along with accompanying stories in 15 languages.',
+      'Collected over 500 words and proverbs categorized into themes of sexism, along with 45+ accompanying stories and words in 15 languages.',
       'Conducted a corpus analysis of 100K newspapers to analyze for linguistic sexism.',
       'Launched at Kitaab Ghar. Featured in the Daily Times',
     ],
@@ -113,9 +115,10 @@ const projects = [
     date: 'Summer 2024',
     word: 'تعلیم',
     details: [
-      'Interned at the Lahore Autism center for 2 months, teaching 20+ children 1-on-1.',
-      'Inspired by that work, mapped out 68 public and private special education facilities in Lahore.',
-      'Illustrating a book teaching children how to sign 12 basics words in Pakistan Sign Language, published with TWS Publications.',
+      'Interned at the Lahore Autism center for 2 months, teaching 20+ children 1-on-1 in speech, sensory and physical therapy. Organized weekend art session.',
+      'Inspired by that work, mapped out 68 public and private special education facilities in Lahore with 20 datapoints with customized best-fit rankings based on specifications.',
+      'Conducted analysis of disability service coverage based on census data, QQIS mapping and disability service distribution.',
+      'Illstrated an 18 pg billingual book teaching children how to sign 12 basics words in Pakistan Sign Language, published with TWS Publications. Stocked in 10 libraries.',
     ],
     tags: ['Community', 'Procreate'],
     bg: '#7A8A22', fg: '#FFFDF6', shape: 'sun', shapeFill: '#FF6B3D',
@@ -125,7 +128,7 @@ const projects = [
     date: 'Summer 2026',
     word: 'لہجہ',
     details: [
-      'Collected over 25 primary interviews from different areas of Lahore to gather accent sample recordings.',
+      'Collected 50 primary interviews from different areas of Lahore to gather accent sample recordings.',
       'Co-wrote Python scripts using Parselmouth to extract accent features from the recordings, grounded in linguistics research.',
       'Surveyed 50 people for primary data on the perceived employability of the sample recordings, and analyzed how accent correlates with the findings.',
     ],
@@ -143,7 +146,7 @@ const projects = [
     ],
     tags: ['Linguistics', 'Community'],
     bg: '#2B3FA8', fg: '#FFFDF6', shape: 'flower', shapeFill: '#F6B3C8', wordColor: '#1A1A16',
-  },
+  }
 ];
 
 const pad = (n) => String(n + 1).padStart(2, '0');
