@@ -79,7 +79,7 @@ const projects = [
       '200+ players in total. Adopted into Master\'s cirriculum for course MBA6060: Manging Workplace Diversity',
     ],
     tags: ['Linguistics', 'Community'],
-    bg: '#2B3FA8', fg: '#FFFDF6', shape: 'flower', shapeFill: '#F6B3C8', wordColor: '#1A1A16',
+    bg: '#D8283C', fg: '#FFFDF6', shape: 'flower', shapeFill: '#F7E01B',
   },
    {
     title: 'TPI Research Internship',
@@ -93,7 +93,7 @@ const projects = [
       'Presented a poster at the 3rd International SutCon Conference 2026.',
     ],
     tags: ['NLP', 'Policy'],
-    bg: '#2B3FA8', fg: '#FFFDF6', shape: 'flower', shapeFill: '#F6B3C8', wordColor: '#1A1A16',
+    bg: '#F7E01B', fg: '#1A1A16', shape: 'flower', shapeFill: '#F6B3C8',
   },
   {
     title: 'Humor Translation Research Paper',
@@ -145,7 +145,7 @@ const projects = [
       'Surveyed 50 people for primary data on the perceived employability of the sample recordings, and analyzed how accent correlates with the findings.',
     ],
     tags: ['Linguistics', 'NLP'],
-    bg: '#D8283C', fg: '#FFFDF6', shape: 'flower', shapeFill: '#F7E01B',
+   bg: '#2B3FA8', fg: '#FFFDF6', shape: 'flower', shapeFill: '#F6B3C8', wordColor: '#1A1A16',
   }
 ];
 
