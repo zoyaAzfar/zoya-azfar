@@ -57,6 +57,31 @@ function shapeSVG(type, fill) {
 /* ---------- project data ---------- */
 const projects = [
   {
+  {
+    title: 'MILAP',
+    date: 'Summer 2024',
+    word: 'تعلیم',
+    details: [
+      'Interned at the Lahore Autism center for 2 months, teaching 20+ children 1-on-1 in speech, sensory and physical therapy. Organized weekend art session.',
+      'Inspired by that work, mapped out 68 public and private special education facilities in Lahore with 20 datapoints with customized best-fit rankings based on specifications.',
+      'Conducted analysis of disability service coverage based on census data, QQIS mapping and disability service distribution.',
+      'Illstrated an 18 pg billingual book teaching children how to sign 12 basics words in Pakistan Sign Language, published with TWS Publications. Stocked in 10 libraries.',
+    ],
+    tags: ['Community', 'Procreate'],
+    bg: '#7A8A22', fg: '#FFFDF6', shape: 'sun', shapeFill: '#FF6B3D',
+  },
+    {
+    title: 'The Master\'s Tools',
+    date: 'Summer 2025',
+    word: 'کھیل',
+    details: [
+      'Developed game on working woman in Pakistan to show systemic gender bias in workplace and at home.',
+      'Designed to be deliberately difficult to highlight the impossibility of managing every task in a day. Designed sprites, maps, wrote dialogue, wrote code, playtested and deployed myself.',
+      '200+ players in total. Adopted into Master\'s cirriculum for course MBA6060: Manging Workplace Diversity',
+    ],
+    tags: ['Linguistics', 'Community'],
+    bg: '#2B3FA8', fg: '#FFFDF6', shape: 'flower', shapeFill: '#F6B3C8', wordColor: '#1A1A16',
+  },
     title: 'TPI Research Internship',
     date: 'Winter 2025',
     word: 'تحقیق',
@@ -111,19 +136,6 @@ const projects = [
     bg: '#F7E01B', fg: '#1A1A16', shape: 'wavy', shapeFill: '#2B3FA8', wordColor: '#FFFDF6',
   },
   {
-    title: 'MILAP',
-    date: 'Summer 2024',
-    word: 'تعلیم',
-    details: [
-      'Interned at the Lahore Autism center for 2 months, teaching 20+ children 1-on-1 in speech, sensory and physical therapy. Organized weekend art session.',
-      'Inspired by that work, mapped out 68 public and private special education facilities in Lahore with 20 datapoints with customized best-fit rankings based on specifications.',
-      'Conducted analysis of disability service coverage based on census data, QQIS mapping and disability service distribution.',
-      'Illstrated an 18 pg billingual book teaching children how to sign 12 basics words in Pakistan Sign Language, published with TWS Publications. Stocked in 10 libraries.',
-    ],
-    tags: ['Community', 'Procreate'],
-    bg: '#7A8A22', fg: '#FFFDF6', shape: 'sun', shapeFill: '#FF6B3D',
-  },
-  {
     title: 'Accent=Worth?',
     date: 'Summer 2026',
     word: 'لہجہ',
@@ -134,18 +146,6 @@ const projects = [
     ],
     tags: ['Linguistics', 'NLP'],
     bg: '#D8283C', fg: '#FFFDF6', shape: 'flower', shapeFill: '#F7E01B',
-  },
-    {
-    title: 'The Master\'s Tools',
-    date: 'Summer 2023',
-    word: 'کھیل',
-    details: [
-      'Developed game on working woman in Pakistan to show systemic gender bias in workplace and at home.',
-      'Designed to be deliberately difficult to highlight the impossibility of managing every task in a day. Designed sprites, maps, wrote dialogue, wrote code, playtested and deployed myself.',
-      '200+ players in total. Adopted into Master\'s cirriculum for course MBA6060: Manging Workplace Diversity',
-    ],
-    tags: ['Linguistics', 'Community'],
-    bg: '#2B3FA8', fg: '#FFFDF6', shape: 'flower', shapeFill: '#F6B3C8', wordColor: '#1A1A16',
   }
 ];
 
