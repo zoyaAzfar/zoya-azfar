@@ -57,7 +57,6 @@ function shapeSVG(type, fill) {
 /* ---------- project data ---------- */
 const projects = [
   {
-  {
     title: 'MILAP',
     date: 'Summer 2024',
     word: 'تعلیم',
@@ -82,6 +81,7 @@ const projects = [
     tags: ['Linguistics', 'Community'],
     bg: '#2B3FA8', fg: '#FFFDF6', shape: 'flower', shapeFill: '#F6B3C8', wordColor: '#1A1A16',
   },
+   {
     title: 'TPI Research Internship',
     date: 'Winter 2025',
     word: 'تحقیق',
