@@ -77,7 +77,7 @@ button { font: inherit; color: inherit; }
 .badge__core { position: absolute; inset: 16%; display: grid; place-items: center; }
 .badge__photo {
   position: absolute; inset: 16%; width: 68%; height: 68%;
-  object-fit: cover; border-radius: 50%; border: var(--rule);
+  object-fit: cover;  
 }
 
 /* ============ work ============ */
