@@ -117,7 +117,7 @@ const projects = [
       'Analyzed over 5000 reviews to create themes of complaints, and calculated city-wide averages for complaint frequency.',
       'Users can compare up to hospitals, get live drive times, and filter hospitals by desired requirements.',
       'Compiled a novel dataset with 45+ datapoints on hospital characteristics in Pakistan through primary and secondary research.',
-         'Endorsed by the PSIM.'
+         'Endorsed by the PSIM, interned at Marham.'
     ],
     tags: ['NLP', 'Policy'],
     bg: '#FF6B3D', fg: '#1A1A16', shape: 'squircle', shapeFill: '#FFFDF6',
