@@ -9,12 +9,12 @@ const CONTACT = {
 /* Links shown on each work card. Add as many as you like per project.
    Leave url as '' and it shows as a greyed-out "soon" pill until you fill it in. */
 const PROJECT_LINKS = {
-  'TPI Research Internship':          [{ label: 'Poster',          url: '' }],
-  'Humor Translation Research Paper': [{ label: 'Paper (NHSJS)',   url: '' }],
-  'Hospital Nama':                    [{ label: 'hospitalnama.pk', url: 'https://hospitalnama.pk' }],
-  'Zuban Daraz':                      [{ label: 'Dictionary',      url: 'https://zubandaraz.org' }],
-  'MILAP':                            [{ label: 'Community Work',         url: 'https://milap.org.pk' }],
-  'Accent=Worth?':                    [{ label: 'Research',         url: 'https://accentequalsworth.org.pk' }],
+  'TPI Research Internship':          [{ label: 'View',          url: 'https://drive.google.com/file/d/1Sy9ztjgKNrz8kpEQbdYvoSjGGvXwO0E6/view?usp=sharing' }],
+  'Humor Translation Research Paper': [{ label: 'View',   url: 'https://drive.google.com/file/d/1NFph8tbu3qagu1QzFBov8iluNZY44jqR/view?usp=sharing' }],
+  'Hospital Nama':                    [{ label: 'View', url: 'https://hospitalnama.pk' }],
+  'Zuban Daraz':                      [{ label: 'View',      url: 'https://zubandaraz.org' }],
+  'MILAP':                            [{ label: 'View',         url: 'https://milap.org.pk' }],
+  'Accent=Worth?':                    [{ label: 'View',         url: 'https://accentequalsworth.org.pk' }],
      'The Master\'s Tools':                    [{ label: 'Game',         url: 'https://zoyaazfar.itch.io/the-masters-tools' }]
 };
 
