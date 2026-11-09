@@ -195,9 +195,12 @@ projects.forEach((p, i) => {
 });
 
 /* ---------- carousel arrows ---------- */
-const step = () => Math.min(track.clientWidth * 0.8, 360);
-el('prev').addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
-el('next').addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+function wireArrows(trackEl, prevId, nextId) {
+  const step = () => Math.min(trackEl.clientWidth * 0.8, 360);
+  el(prevId).addEventListener('click', () => trackEl.scrollBy({ left: -step(), behavior: 'smooth' }));
+  el(nextId).addEventListener('click', () => trackEl.scrollBy({ left: step(), behavior: 'smooth' }));
+}
+wireArrows(track, 'prev', 'next');
 
 /* ---------- index list in the intro: jump to that card ---------- */
 el('index').innerHTML = projects
@@ -210,6 +213,52 @@ el('index').addEventListener('click', (e) => {
   const card = el(`p${b.dataset.i}`);
   track.scrollTo({ left: card.offsetLeft - track.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft), behavior: 'smooth' });
 });
+
+
+const ARTWORKS = [
+  { title: 'Artwork title', year: '2025', medium: 'Procreate', src: '', bg: '#F6B3C8', shape: 'flower', shapeFill: '#F7E01B' },
+  { title: 'Artwork title', year: '2025', medium: 'Procreate', src: '', bg: '#2B3FA8', shape: 'burst',  shapeFill: '#F6B3C8' },
+  { title: 'Artwork title', year: '2024', medium: 'Procreate',   src: '', bg: '#F7E01B', shape: 'sun',    shapeFill: '#FF6B3D' },
+  { title: 'Artwork title', year: '2024', medium: 'Procreate',   src: '', bg: '#7A8A22', shape: 'wavy',   shapeFill: '#FFFDF6' },
+];
+
+const artTrack = el('art-track');
+ARTWORKS.forEach((a, i) => {
+  const card = document.createElement('article');
+  card.className = 'card card--art';
+  card.style.setProperty('--bg', a.bg);
+  card.innerHTML = `
+    <div class="card__art">
+      ${a.src
+        ? `<img src="${a.src}" alt="${a.title}" loading="lazy" />`
+        : `<div class="shape">${shapeSVG(a.shape, a.shapeFill)}</div>`}
+      <span class="bubble">${a.year}</span>
+    </div>
+    <div class="card__body">
+      <span class="card__meta">${pad(i)}</span>
+      <h3>${a.title}</h3>
+      <p class="mono">${a.medium}</p>
+    </div>`;
+  artTrack.appendChild(card);
+});
+wireArrows(artTrack, 'art-prev', 'art-next');
+
+const ESSAYS = [
+  { title: 'Essay title', blurb: 'One-line description of what the essay argues.', venue: 'Course / publication', year: '2026', url: '' },
+  { title: 'Essay title', blurb: 'One-line description of what the essay argues.', venue: 'Course / publication', year: '2025', url: '' },
+  { title: 'Essay title', blurb: 'One-line description of what the essay argues.', venue: 'Course / publication', year: '2025', url: '' },
+];
+
+el('essay-list').innerHTML = ESSAYS.map((e, i) => `
+  <li class="essay">
+    <span class="card__meta">${pad(i)}</span>
+    <div class="essay__main">
+      <h3>${e.title}</h3>
+      <p class="mono">${e.blurb}</p>
+    </div>
+    <span class="mono essay__venue">${e.venue} · ${e.year}</span>
+    ${pill({ label: 'Read', url: e.url })}
+  </li>`).join('');
 
 /* ---------- contact ---------- */
 const mail = el('contact-email');
