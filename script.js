@@ -216,10 +216,9 @@ el('index').addEventListener('click', (e) => {
 
 
 const ARTWORKS = [
-  { title: 'Artwork title', year: '2025', medium: 'Procreate', src: '', bg: '#F6B3C8', shape: 'flower', shapeFill: '#F7E01B' },
-  { title: 'Artwork title', year: '2025', medium: 'Procreate', src: '', bg: '#2B3FA8', shape: 'burst',  shapeFill: '#F6B3C8' },
-  { title: 'Artwork title', year: '2024', medium: 'Procreate',   src: '', bg: '#F7E01B', shape: 'sun',    shapeFill: '#FF6B3D' },
-  { title: 'Artwork title', year: '2024', medium: 'Procreate',   src: '', bg: '#7A8A22', shape: 'wavy',   shapeFill: '#FFFDF6' },
+  { title: 'Age study', year: '2025', medium: 'Procreate', src: 'img1', bg: '#F6B3C8', shape: 'flower', shapeFill: '#F7E01B' },
+  { title: 'Green Room ', year: '2025', medium: 'Procreate', src: 'img2', bg: '#2B3FA8', shape: 'burst',  shapeFill: '#F6B3C8' },
+  { title: 'Error', year: '2024', medium: 'Procreate',   src: 'img3', bg: '#F7E01B', shape: 'sun',    shapeFill: '#FF6B3D' },
 ];
 
 const artTrack = el('art-track');
